@@ -7,6 +7,7 @@
    This script performs a frequentist hypothesis test on the simulated mass spectra produced by the generator. To use it, run the script, provide the path to a CSV dataset, and the code will print the local and global p-values and significances for that dataset.
 
 4. bayesian.py:
+   This script performs a Bayesian analysis of mass spectrum data, comparing background-only and signal-plus-background models using Dynesty for nested sampling. To use, run the script, provide a CSV file with observed mass spectrum data, and it will output the results along with plots of the fit and posterior distributions for both models.
    
-   
+
 
