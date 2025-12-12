@@ -4,5 +4,9 @@
 2. simulationvalidation.py:
 
 3. frequentist.py:
+   This script performs a frequentist hypothesis test on the simulated mass spectra produced by the generator. To use it, run the script, provide the path to a CSV dataset, and the code will print the local and global p-values and significances for that dataset.
+
+4. bayesian.py:
    
    
+
