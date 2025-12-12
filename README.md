@@ -2,7 +2,7 @@
 
 2. simulationvalidation.ipynb: This python notebook contains the code for the validation of our toy experiment data. Datasets from the CERN open data portal are required to be downloaded to properly run the code. They can be accessed here: https://opendata.cern.ch/record/93915. Due to the large nature of these datasets, download time will be lengthy and take up a significant amount of storage.
 
-3. simulationanalysis.py:    
+3. simulationanalysis.py: This script uses the code from simulate.py and produces both full spectra and background-subtracted panels, illustrating how the signal emerges as luminosity increases, and saves the resulting figures for use in analysis and presentation.   
 
 4. frequentist.py: This script performs a frequentist hypothesis test on the simulated mass spectra produced by the generator. To use it, run the script, provide the path to a CSV dataset, and the code will print the local and global p-values and significances for that dataset.
 
@@ -14,6 +14,7 @@
 
 8. datacomparision.py: This script batch-processes all simulated datasets (dataset_L*.csv) and summarizes the results of the frequentist and Bayesian analyses. For each luminosity, it calls the compare function to extract the local and global significances, Bayesian evidences, and the posterior probability of the background-only hypothesis. The results are collected into a single table and saved as summary_results.csv, allowing easy comparison of statistical sensitivity as a function of integrated luminosity.
    
+
 
 
 
