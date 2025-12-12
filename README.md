@@ -8,6 +8,13 @@
 
 4. bayesian.py:
    This script performs a Bayesian analysis of mass spectrum data, comparing background-only and signal-plus-background models using Dynesty for nested sampling. To use, run the script, provide a CSV file with observed mass spectrum data, and it will output the results along with plots of the fit and posterior distributions for both models.
+
+5. comparision.py:
+   This script compares the frequentist results with the Bayesian results. It is used in datacomparision.py.
+
+6. datacomparision.py:
+   This script batch-processes all simulated datasets (dataset_L*.csv) and summarizes the results of the frequentist and Bayesian analyses. For each luminosity, it calls the compare function to extract the local and global significances, Bayesian evidences, and the posterior probability of the background-only hypothesis. The results are collected into a single table and saved as summary_results.csv, allowing easy comparison of statistical sensitivity as a function of integrated luminosity.
    
+
 
 
