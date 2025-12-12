@@ -1,6 +1,3 @@
-#!/usr/bin/env python3
-# frequentist_batch.py
-
 import numpy as np
 import pandas as pd
 from scipy.stats import norm
