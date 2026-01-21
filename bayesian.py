@@ -4,9 +4,7 @@ import matplotlib.pyplot as plt
 from dynesty import NestedSampler
 from scipy.special import gammaln
 
-# -----------------------------
 # Models
-# -----------------------------
 def background_model(x, A, b):
     return A * np.exp(-b * (x - 100))
 
@@ -15,18 +13,12 @@ def signal_plus_background(x, A, b, mu, S, sigma):
     sig = S * np.exp(-(x - mu)**2 / (2 * sigma**2))
     return bg + sig
 
-# -----------------------------
 # Log-likelihood
-# -----------------------------
 def log_poisson(n, lam):
     lam = np.maximum(lam, 1e-12)
     return np.sum(n*np.log(lam) - lam - gammaln(n+1))
 
-# -----------------------------
 # Priors
-# -----------------------------
-
-
 
 def prior_B(u):
     A = 0.01 + 300 * u[0]    # amplitude ~ 10–210
@@ -44,9 +36,7 @@ def prior_SB(u):
     return A, b, mu, S, sigma
 
 
-# -----------------------------
 # Likelihood wrappers
-# -----------------------------
 def make_loglike_B(x, n):
     def loglike(theta):
         A, b = theta
@@ -61,9 +51,7 @@ def make_loglike_SB(x, n):
         return log_poisson(n, lam)
     return loglike
 
-# -----------------------------
 # Run Bayesian analysis
-# -----------------------------
 def run_bayes(file, maxiter_B=5000, maxiter_SB=10000, nlive_B=400, nlive_SB=600):
     df = pd.read_csv(file)
     x = df["mass"].values
@@ -114,9 +102,7 @@ def run_bayes(file, maxiter_B=5000, maxiter_SB=10000, nlive_B=400, nlive_SB=600)
         "samples_SB": samples_SB
     }
 
-# -----------------------------
 # Plotting
-# -----------------------------
 def plot_results(result):
     x = result["x"]
     n = result["n"]
@@ -169,9 +155,7 @@ def plot_results(result):
     plt.tight_layout()
     plt.show()
 
-# -----------------------------
 # CLI
-# -----------------------------
 if __name__ == "__main__":
     filename = input("Enter the CSV filename to analyze (e.g., dataset_L1.0.csv): ").strip()
     try:
